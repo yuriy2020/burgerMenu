@@ -1,54 +1,53 @@
 /* обнуление */
-*,*:before,*:after{
+*,
+*:before,
+*:after {
   padding: 0;
   margin: 0;
-  border:0;
+  border: 0;
   box-sizing: border-box;
 }
 
-html,body{
-  height:50%;
+html,
+body {
+  height: 50%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrapper{
-
+.wrapper {
 }
-
 
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 50;
- }
-.header::before{
-  content:'';
+  z-index: 10;
+}
+.header::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(135, 91, 148);
+  background-color: #5e5373;
+  z-index: 2;
 }
-
 
 .container {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 10px;
-  
- }
+}
 .header__body {
   position: relative;
-  /* z-index: 2; */
   display: flex;
   justify-content: space-between;
-  height:80px;
+  height: 80px;
   /*без выравнивания все ломает */
   align-items: center;
- }
+}
 
 /* LOGO */
 .header__logo {
@@ -56,76 +55,104 @@ html,body{
   border-radius: 50%;
   overflow: hidden;
   /* margin-left: 50px; */
- }
-.header__logo img{
+  z-index: 3;
+}
+.header__logo img {
   max-width: 100%;
   display: block;
-  
- }
+}
 
 .header__burger {
   display: none;
- }
-.header__menu { }
+}
 
-@media (max-width: 767px){
-  .header__burger { 
-    display: block;
-    position: relative;
-    width: 30px;
-    height: 22px;
-  }
-  /* рисуем бургер с помощью псевдо элементов */
-  .header__burger:before,
-  .header__burger:after{
-    content: '';
-    background-color:#fff;
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    left:0;
-  }
-  .header__burger:before{
-    top:0;
-  }
-  /* средняя полоска бургера */
-  .header__burger span{
-    position: absolute;
-    background-color: #fff;
-    top:9px;
-    width: 100%;
-    height: 4px;
-
-  }
-  /* нижняя полоска бургера */
-  .header__burger:after{
-    bottom: 0;
-  }
+.header__menu {
 }
 
 .header__list {
   display: flex;
- }
+  position: relative;
+  z-index: 2;
+}
 .header__list li {
   list-style: none;
-  margin:0 0 0 20px;
- }
+  margin: 0 0 0 20px;
+}
 
 .header__link {
-  color:#fff;
+  color: #fff;
   text-transform: uppercase;
   font-size: 18px;
   text-decoration: none;
+}
 
- }
-.content { }
+@media (max-width: 767px) {
+  .header__body {
+    height: 50px;
+  }
+  .header__logo {
+    flex: 0 0 40px;
+  }
+  .header__burger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 21px;
+    z-index: 3;
+  }
+  /* рисуем бургер с помощью псевдо элементов */
+  .header__burger:before,
+  .header__burger:after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+  }
+  .header__burger:before {
+    top: 0;
+  }
+  /* средняя полоска бургера */
+  .header__burger span {
+    position: absolute;
+    background-color: #fff;
+    top: 9px;
+    width: 100%;
+    height: 3px;
+  }
+  /* нижняя полоска бургера */
+  .header__burger:after {
+    bottom: 0;
+  }
+
+  .header__menu {
+    position: fixed;
+    background-color: rgb(24, 108, 114);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 70px 10px 20px 0px;
+  }
+  .header__list {
+    /* flex-direction: column; */
+    display: block;
+  
+  }
+  .header__list li{
+    padding: 0 0 20px 0;
+    
+  }
+}
+
+.content {
+}
 .content__text {
   padding: 100px 0 0 0;
   font-size: 20px;
- }
-
- .content__text p {
-margin: 0 0 20px 0; 
 }
 
-
+.content__text p {
+  margin: 0 0 20px 0;
+}
